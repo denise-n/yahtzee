@@ -10,8 +10,8 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dice: Array.from({ length: NUM_DICE }),
-      locked: Array(NUM_DICE).fill(false),
+      dice: Array.from({ length: NUM_DICE }), //makes an array of NUM_DICE(5) dice of undefined
+      locked: Array(NUM_DICE).fill(false), //makes array of NUM_DICE(5) dice where locked is initially false for each die 
       rollsLeft: NUM_ROLLS,
       scores: {
         ones: undefined,
@@ -31,21 +31,25 @@ class Game extends Component {
     };
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
+    this.toggleLocked = this.toggleLocked.bind(this)
   }
 
   roll(evt) {
     // roll dice whose indexes are in reroll
     this.setState(st => ({
       dice: st.dice.map((d, i) =>
-        st.locked[i] ? d : Math.ceil(Math.random() * 6)
+        st.locked[i] ? d : Math.ceil(Math.random() * 6) //rolls dice that aren't locked (for first roll this is all dice)
       ),
-      locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
+      locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true), //lock all dice if 0 rolls left
       rollsLeft: st.rollsLeft - 1
     }));
   }
 
   toggleLocked(idx) {
     // toggle whether idx is in locked or not
+    // slices locked array to index element
+    // toggles index element
+    // rebuilds array with the toggled element
     this.setState(st => ({
       locked: [
         ...st.locked.slice(0, idx),
@@ -53,6 +57,7 @@ class Game extends Component {
         ...st.locked.slice(idx + 1)
       ]
     }));
+    
   }
 
   doScore(rulename, ruleFn) {
@@ -66,6 +71,10 @@ class Game extends Component {
   }
 
   render() {
+    console.log('dice',this.state.dice)
+    // console.log('locked', this.state.locked)
+  
+  
     return (
       <div className='Game'>
         <header className='Game-header'>
@@ -73,9 +82,9 @@ class Game extends Component {
 
           <section className='Game-dice-section'>
             <Dice
-              dice={this.state.dice}
-              locked={this.state.locked}
-              handleClick={this.toggleLocked}
+              dice={this.state.dice} //array
+              locked={this.state.locked} //array 
+              handleClick={this.toggleLocked} //toggle method
             />
             <div className='Game-button-wrapper'>
               <button
