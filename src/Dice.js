@@ -12,7 +12,8 @@ class Dice extends Component {
           val={d} //value of the die
           locked={this.props.locked[idx]} //whether die at index is currently locked
           idx={idx}
-          key={idx} 
+          key={idx}
+          disabled={this.props.disabled} 
         />
       )}
     </div>
