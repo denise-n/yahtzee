@@ -22,13 +22,13 @@ class Rule {
   freq(dice) {
     // frequencies of dice values
     const freqs = new Map();
-    for (let d of dice) freqs.set(d, (freqs.get(d) || 0) + 1);
-    return Array.from(freqs.values());
+    for (let d of dice) freqs.set(d, (freqs.get(d) || 0) + 1); // for every die, every value that exists will be in Map freqs once initially (0+1), then afterwards, every repeated time will be added to Map freqs (1+1), (2+1)...ect... counts frequency    
+    return Array.from(freqs.values()); //creates an array of frequencies
   }
 
   count(dice, val) {
     // # times val appears in dice
-    return dice.filter(d => d === val).length;
+    return dice.filter(d => d === val).length; 
   }
 }
 
@@ -39,7 +39,8 @@ class Rule {
 
 class TotalOneNumber extends Rule {
   evalRoll = dice => {
-    return this.val * this.count(dice, this.val);
+    return this.val * this.count(dice, this.val); //value * # of times value appears in dice
+                                                  // eg. dice = [1,4,6,4,1]; val = 4; 4*2 = 8;
   };
 }
 
@@ -52,19 +53,34 @@ class SumDistro extends Rule {
   evalRoll = dice => {
     // do any of the counts meet of exceed this distro?
     return this.freq(dice).some(c => c >= this.count) ? this.sum(dice) : 0;
+
+    //eg. dice = [1,4,6,4,1]; let c = 3 (tests threeOfaKind); freq(dice) = [2,2,1]; is there at least one num >=3 in [2,2,1] ? no => 0;
+    //eg. dice = [1,2,1,1,1]; let c = 3 (tests threeOfaKind); freq(dice) = [4, 1]; is there at least one num >=3 ? 4>=3 => sum(dice) => 6
   };
 }
 
 /** Check if full house (3-of-kind and 2-of-kind) */
 
-class FullHouse {
-  // TODO
-}
+class FullHouse extends Rule {
+  evalRoll = dice => {
+    return this.freq(dice).includes(2) && this.freq(dice).includes(3) ? this.score : 0
+  }
+} 
+
 
 /** Check for small straights. */
 
-class SmallStraight {
-  // TODO
+class SmallStraight extends Rule {
+  evalRoll = dice => {
+    const d = new Set(dice)
+    // small straight must be 4 different dice in a row
+    // [1,2,3,4] [2,3,4,5] [3,4,5,6]
+    if (d.has(2) && d.has(3) && d.has(4) && (d.has(1) || d.has(5)))
+      return this.score
+    if (d.has(3) && d.has(4) && d.has(5) && (d.has(2) || d.has(6)))
+      return this.score
+    return 0
+  }
 }
 
 /** Check for large straights. */
@@ -100,10 +116,10 @@ const threeOfKind = new SumDistro({ count: 3 });
 const fourOfKind = new SumDistro({ count: 4 });
 
 // full house scores as flat 25
-const fullHouse = "TODO";
+const fullHouse = new FullHouse({ score: 25 });
 
 // small/large straights score as 30/40
-const smallStraight = "TODO";
+const smallStraight = new SmallStraight({ score: 30 });
 const largeStraight = new LargeStraight({ score: 40 });
 
 // yahtzee scores as 50
