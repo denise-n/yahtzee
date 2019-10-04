@@ -86,33 +86,39 @@ class Game extends Component {
     }
   }
 
-  render() {  
+  render() {
+    const { dice, locked, rollsLeft, isRolling, scores } = this.state
+    const displayRolls = () => {
+      if (rollsLeft === 3) return 'Starting'
+      else if (rollsLeft === 2) return '2 Rolls Left'
+      else if (rollsLeft === 1) return '1 Roll Left!'
+      else return 'Out of Rolls!'
+      }
+  
     return (
       <div className='Game'>
         <header className='Game-header'>
           <h1 className='App-title'>Yahtzee!</h1>
-
-
           <section className='Game-dice-section'>
             <Dice
-              dice={this.state.dice} //array
-              locked={this.state.locked} //array 
+              dice={dice} //array
+              locked={locked} //array 
               handleClick={this.toggleLocked} //toggle method
-              disabled={this.state.rollsLeft === 0}
-              rolling={this.state.isRolling}
+              disabled={rollsLeft === 0}
+              rolling={isRolling}
             />
             <div className='Game-button-wrapper'>
               <button
                 className='Game-reroll'
-                disabled={this.state.locked.every(x => x) || this.state.rollsLeft===0}
+                disabled={locked.every(x => x) || rollsLeft===0 || isRolling}
                 onClick={this.animateRoll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {displayRolls()}
               </button>
             </div>
           </section>
         </header>
-        <ScoreTable doScore={this.doScore} scores={this.state.scores} />
+        <ScoreTable doScore={this.doScore} scores={scores} />
       </div>
     );
   }

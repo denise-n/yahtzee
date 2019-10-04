@@ -7,7 +7,10 @@ import { ones, twos, threes, fours, fives, sixes, threeOfKind, fourOfKind, fullH
 class ScoreTable extends Component {
 
   render() {
-    const { scores, doScore } = this.props;
+    const { scores, doScore } = this.props
+    let scoresArr = [0, ...Object.values(scores).filter(s => s!==undefined)]
+    console.log(this.props)
+    // console.log(scoresArr.reduce((a, b) => a + b))
 
     return (
       <div className="ScoreTable">
@@ -38,6 +41,7 @@ class ScoreTable extends Component {
             </tbody>
           </table>
         </section>
+        <h2>Total Score: {scoresArr.reduce((a, b) => a + b)}</h2>
       </div>
     )
   }
