@@ -101,9 +101,9 @@ class Game extends Component {
           />
           <ScoreTable doScore={this.doScore} scores={scores} />
         </div>
-        <div className="Game-button-wrapper">
+        {/* <div className="Game-button-wrapper">
           <button className="Game-help"><Link to='/help'>HELP</Link></button>
-        </div>
+        </div> */}
         
       </div>
     )
