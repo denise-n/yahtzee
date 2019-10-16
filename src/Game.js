@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Dice from "./Dice";
+import Header from './Header'
 import ScoreTable from "./ScoreTable";
 import "./Game.css";
 
@@ -88,39 +88,24 @@ class Game extends Component {
 
   render() {
     const { dice, locked, rollsLeft, isRolling, scores } = this.state
-    const displayRolls = () => {
-      if (rollsLeft === 3) return 'Starting'
-      else if (rollsLeft === 2) return '2 Rolls Left'
-      else if (rollsLeft === 1) return '1 Roll Left!'
-      else return 'Out of Rolls!'
-      }
+    
   
     return (
-      <div className='Game'>
-        <header className='Game-header'>
-          <h1 className='App-title'>Yahtzee!</h1>
-          <section className='Game-dice-section'>
-            <Dice
-              dice={dice} //array
-              locked={locked} //array 
-              handleClick={this.toggleLocked} //toggle method
-              disabled={rollsLeft === 0}
-              rolling={isRolling}
-            />
-            <div className='Game-button-wrapper'>
-              <button
-                className='Game-reroll'
-                disabled={locked.every(x => x) || rollsLeft===0 || isRolling}
-                onClick={this.animateRoll}
-              >
-                {displayRolls()}
-              </button>
-            </div>
-          </section>
-        </header>
-        <ScoreTable doScore={this.doScore} scores={scores} />
+      <div>
+        <div className='Game'>
+          <Header 
+            dice={dice} locked={locked} rollsLeft={rollsLeft} isRolling={isRolling}
+            animateRoll={this.animateRoll}
+            toggleLocked={this.toggleLocked}
+          />
+          <ScoreTable doScore={this.doScore} scores={scores} />
+        </div>
+        <div className="Game-button-wrapper">
+          <button className="Game-help">HELP</button>
+        </div>
+        
       </div>
-    );
+    )
   }
 }
 
