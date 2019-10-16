@@ -36,15 +36,18 @@
 
 .RuleRow td {
   padding: 0.3em;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px grey;
 }
 
 .RuleRow-name {
+  letter-spacing: 0.12em;
+  font-weight: 400;
   width: 50%;
   text-align: left;
 }
 
 .RuleRow-score {
+  font-weight: 300;
   width: 50%;
   text-align: right;
 }
