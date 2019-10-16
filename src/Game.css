@@ -35,6 +35,11 @@
   margin-top: 2%;
 }
 
+.Game-help a {
+  text-decoration: none;
+  color: white;
+}
+
 .Game-help:hover {
   cursor: pointer;
   background-position: right center;

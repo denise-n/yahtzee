@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import Header from './Header'
-import ScoreTable from "./ScoreTable";
-import "./Game.css";
+import ScoreTable from './ScoreTable'
+import './Game.css'
 
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
@@ -101,7 +102,7 @@ class Game extends Component {
           <ScoreTable doScore={this.doScore} scores={scores} />
         </div>
         <div className="Game-button-wrapper">
-          <button className="Game-help">HELP</button>
+          <button className="Game-help"><Link to='/help'>HELP</Link></button>
         </div>
         
       </div>
