@@ -3,14 +3,25 @@ import Dice from "./Dice"
 import './Header.css'
 
 class Header extends Component {
+    displayRolls = () => {
+        const { rollsLeft } = this.props
+        switch (rollsLeft) {
+            case 3:
+                return 'Starting'
+            case 2:
+                return '2 Rolls Left'
+            case 1: 
+                return '1 Roll Left!'
+            default:
+                return 'Out of Rolls!'
+        }
+        
+    }
+        
+
     render() {
         const { dice, locked, rollsLeft, isRolling } = this.props
-        const displayRolls = () => {
-            if (rollsLeft === 3) return 'Starting'
-            else if (rollsLeft === 2) return '2 Rolls Left'
-            else if (rollsLeft === 1) return '1 Roll Left!'
-            else return 'Out of Rolls!'
-            }
+        
 
         return (
             <header className='Game-header'>
@@ -29,7 +40,7 @@ class Header extends Component {
                             disabled={locked.every(x => x) || rollsLeft===0 || isRolling}
                             onClick={this.props.animateRoll}
                         >
-                            {displayRolls()}
+                            {this.displayRolls()}
                         </button>
                     </div>
                 </section>
