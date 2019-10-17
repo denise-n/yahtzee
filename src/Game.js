@@ -92,7 +92,7 @@ class Game extends Component {
     
   
     return (
-      <div>
+      <div className="Game-container">
         <div className='Game'>
           <Header 
             dice={dice} locked={locked} rollsLeft={rollsLeft} isRolling={isRolling}

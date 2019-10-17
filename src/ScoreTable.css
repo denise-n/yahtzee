@@ -8,7 +8,7 @@
 
 .ScoreTable-section-container {
   display: flex;
-  width: 95%;
+  width: 98%;
   align-self: center;
 }
 
@@ -25,10 +25,13 @@ h2 {
 }
 
 .ScoreTable table {
-  width: 90%;
+  width: 96%;
   margin: 0 auto;
 }
 
+.ScoreTable .total-score h2 {
+  margin-bottom: 1%;
+}
 
 
 
