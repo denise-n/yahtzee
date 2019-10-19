@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 import Header from './Header'
 import ScoreTable from './ScoreTable'
+import GameOver from './GameOver'
 import './Game.css'
 
 const NUM_DICE = 5;
@@ -29,7 +30,8 @@ class Game extends Component {
         largeStraight: undefined,
         yahtzee: undefined,
         chance: undefined
-      }
+      },
+      gameOver: false
     };
   }
   
@@ -38,6 +40,7 @@ class Game extends Component {
   }
 
   animateRoll = () => {
+    
     this.setState({isRolling: true})
     setTimeout(() => {
       this.roll()
@@ -84,12 +87,26 @@ class Game extends Component {
         locked: Array(NUM_DICE).fill(false)
       }));
       this.animateRoll();
+      // WILL TRY TO CHANGE TO ASYNC 
     }
   }
 
-  render() {
-    const { dice, locked, rollsLeft, isRolling, scores } = this.state
+
+  checkGameOver = () => {
+    // const { scores } = this.state
     
+
+    // console.log('game continues?',gameContinues)
+    // // console.log(Object.values(scores))
+    // gameContinues
+    // ? this.setState({gameOver: true})
+    // : this.animateRoll()
+    
+  }
+
+  render() {
+    const { dice, locked, rollsLeft, isRolling, scores, gameOver } = this.state
+    console.log('rendering')
   
     return (
       <div className="Game-container">
@@ -99,7 +116,8 @@ class Game extends Component {
             animateRoll={this.animateRoll}
             toggleLocked={this.toggleLocked}
           />
-          <ScoreTable doScore={this.doScore} scores={scores} />
+          {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} /> : <GameOver />}
+          
         </div>
         {/* <div className="Game-button-wrapper">
           <Link to='/help'><button className="Game-help">HELP</button></Link>

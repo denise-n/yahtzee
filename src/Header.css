@@ -1,6 +1,7 @@
 .Game-header {
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
     align-items: center;
     width: 100%;
     background: linear-gradient(-45deg, #673ab7, #9c27b0);

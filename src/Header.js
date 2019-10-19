@@ -14,8 +14,7 @@ class Header extends Component {
                 return '1 Roll Left!'
             default:
                 return 'Out of Rolls!'
-        }
-        
+        } 
     }
         
 

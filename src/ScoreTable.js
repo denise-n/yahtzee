@@ -14,6 +14,7 @@ class ScoreTable extends Component {
 
     return (
       <div className="ScoreTable">
+        
         <div className="ScoreTable-section-container">
           <section className="ScoreTable-section">
             <h2>Upper</h2>
