@@ -65,7 +65,8 @@ class Game extends Component {
     // slices locked array to index element
     // toggles index element
     // rebuilds array with the toggled element
-    if (this.state.rollsLeft > 0) {
+    const { rollsLeft } = this.state
+    if (rollsLeft > 0) {
       this.setState(st => ({
         locked: [
           ...st.locked.slice(0, idx),
@@ -99,7 +100,32 @@ class Game extends Component {
     !gameContinues
     ? this.setState({gameOver: true})
     : this.animateRoll()
-    
+  }
+
+  playAgain = () => {
+    this.setState({
+      dice: Array.from({ length: NUM_DICE }).map(d => Math.floor(Math.random()*6) + 1), //makes an array of NUM_DICE(5) with random numbers
+      locked: Array(NUM_DICE).fill(false), //makes array of NUM_DICE(5) dice where locked is initially false for each die 
+      rollsLeft: NUM_ROLLS,
+      isRolling: false,
+      scores: {
+        ones: undefined,
+        twos: undefined,
+        threes: undefined,
+        fours: undefined,
+        fives: undefined,
+        sixes: undefined,
+        threeOfKind: undefined,
+        fourOfKind: undefined,
+        fullHouse: undefined,
+        smallStraight: undefined,
+        largeStraight: undefined,
+        yahtzee: undefined,
+        chance: undefined
+      },
+      gameOver: false
+    })
+    this.animateRoll()
   }
 
   render() {
@@ -109,11 +135,15 @@ class Game extends Component {
       <div className="Game-container">
         <div className='Game'>
           <Header 
-            dice={dice} locked={locked} rollsLeft={rollsLeft} isRolling={isRolling}
+            dice={dice} 
+            locked={!gameOver? locked: Array(NUM_DICE).fill(true)} 
+            rollsLeft={rollsLeft} 
+            isRolling={isRolling} 
+            gameOver={gameOver}
             animateRoll={this.animateRoll}
             toggleLocked={this.toggleLocked}
           />
-          {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} isRolling={isRolling}/> : <GameOver />}
+          {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} isRolling={isRolling}/> : <GameOver playAgain={this.playAgain} scores={scores}/>}
           
         </div>
         {/* <div className="Game-button-wrapper">

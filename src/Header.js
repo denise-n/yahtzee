@@ -7,7 +7,7 @@ class Header extends Component {
         const { rollsLeft } = this.props
         switch (rollsLeft) {
             case 3:
-                return 'Starting'
+                return 'Beginning...'
             case 2:
                 return '2 Rolls Left'
             case 1: 
@@ -19,7 +19,7 @@ class Header extends Component {
         
 
     render() {
-        const { dice, locked, rollsLeft, isRolling } = this.props
+        const { dice, locked, rollsLeft, isRolling, gameOver } = this.props
         
 
         return (
@@ -30,13 +30,13 @@ class Header extends Component {
                     dice={dice} //array
                     locked={locked} //array 
                     handleClick={this.props.toggleLocked} //toggle method
-                    disabled={rollsLeft === 0}
+                    disabled={rollsLeft === 0 || gameOver}
                     rolling={isRolling}
                     />
                     <div className='Game-button-wrapper'>
                         <button
                             className='Game-reroll'
-                            disabled={locked.every(x => x) || rollsLeft===0 || isRolling}
+                            disabled={locked.every(x => x) || rollsLeft===0 || isRolling || gameOver}
                             onClick={this.props.animateRoll}
                         >
                             {this.displayRolls()}

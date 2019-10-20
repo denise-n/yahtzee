@@ -1,7 +1,47 @@
 .GameOver {
     display: flex;
     flex-direction: column;
+    /* justify-content: space-evenly; */
     height: 100%;
     width: 100%;
     background-color: white;
+  }
+
+  .GameOver h1 {
+    font-size: 3rem;
+    letter-spacing: 0.35em;
+  }
+
+  .GameOver h2 {
+    font-weight: bold;
+  }
+
+  .play-again {
+    font-size: 2em;
+    color: white;
+    font-weight: 100;
+    transition: 0.5s;
+    background-size: 200% auto;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(
+      to right,
+      #9c27b0 0%,
+      #7f7fd5 51%,
+      #9c27b0 100%
+    );
+    border-radius: 0.5rem;
+    border: none;
+    width: 15vw;
+    padding: 1%;
+    /* margin-top: 2%; */
+  }
+
+  .play-again a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .play-again:hover {
+    cursor: pointer;
+    background-position: right center;
   }

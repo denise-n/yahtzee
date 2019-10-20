@@ -30,6 +30,7 @@ h2 {
 }
 
 .ScoreTable .total-score h2 {
+  font-weight: bold;
   margin-bottom: 1%;
 }
 

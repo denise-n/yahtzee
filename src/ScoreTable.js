@@ -45,7 +45,7 @@ class ScoreTable extends Component {
         </section>
         </div>
         <div className="total-score">
-          <h2>Total Score: {scoresArr.reduce((a, b) => a + b)}</h2>
+          <h2>Score: {scoresArr.reduce((a, b) => a + b)}</h2>
         </div>
         
       </div>
