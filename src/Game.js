@@ -78,7 +78,7 @@ class Game extends Component {
     }
   }
 
-  doScore = (rulename, ruleFn) => {
+  doScore = async (rulename, ruleFn) => {
     // evaluate this ruleFn with the dice and score this rulename
     if(this.state.scores[rulename] === undefined) {
       this.setState(st => ({
@@ -86,27 +86,24 @@ class Game extends Component {
         rollsLeft: NUM_ROLLS,
         locked: Array(NUM_DICE).fill(false)
       }));
-      this.animateRoll();
+      await console.log(this.state.scores)
+      this.checkGameOver();
       // WILL TRY TO CHANGE TO ASYNC 
     }
   }
 
 
   checkGameOver = () => {
-    // const { scores } = this.state
-    
-
-    // console.log('game continues?',gameContinues)
-    // // console.log(Object.values(scores))
-    // gameContinues
-    // ? this.setState({gameOver: true})
-    // : this.animateRoll()
+    const { scores } = this.state
+    const gameContinues = Object.values(scores).includes(undefined)
+    !gameContinues
+    ? this.setState({gameOver: true})
+    : this.animateRoll()
     
   }
 
   render() {
     const { dice, locked, rollsLeft, isRolling, scores, gameOver } = this.state
-    console.log('rendering')
   
     return (
       <div className="Game-container">
@@ -116,7 +113,7 @@ class Game extends Component {
             animateRoll={this.animateRoll}
             toggleLocked={this.toggleLocked}
           />
-          {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} /> : <GameOver />}
+          {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} isRolling={isRolling}/> : <GameOver />}
           
         </div>
         {/* <div className="Game-button-wrapper">
