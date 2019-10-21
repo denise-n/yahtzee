@@ -7,7 +7,7 @@ class Header extends Component {
         const { rollsLeft } = this.props
         switch (rollsLeft) {
             case 3:
-                return 'Beginning...'
+                return 'Rolling...'
             case 2:
                 return '2 Rolls Left'
             case 1: 
