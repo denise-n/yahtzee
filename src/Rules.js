@@ -112,15 +112,15 @@ const fives = new TotalOneNumber({ val: 5, description: '5 points per 5'});
 const sixes = new TotalOneNumber({ val: 6, description: '6 points per 6' });
 
 // three/four of kind score as sum of all dice
-const threeOfKind = new SumDistro({ count: 3, description: 'Sum all dice if 3 are the same' });
-const fourOfKind = new SumDistro({ count: 4, description: 'Sum all dice if 4 are the same' });
+const threeOfKind = new SumDistro({ count: 3, description: 'Sum all dice if 3 of a kind' });
+const fourOfKind = new SumDistro({ count: 4, description: 'Sum all dice if 4 of a kind' });
 
 // full house scores as flat 25
-const fullHouse = new FullHouse({ score: 25, description: '25 points for a Full House' });
+const fullHouse = new FullHouse({ score: 25, description: '25 points' });
 
 // small/large straights score as 30/40
-const smallStraight = new SmallStraight({ score: 30, description: '30 points for a Small Straight' });
-const largeStraight = new LargeStraight({ score: 40, description: '40 points for a Large Straight' });
+const smallStraight = new SmallStraight({ score: 30, description: '30 points' });
+const largeStraight = new LargeStraight({ score: 40, description: '40 points' });
 
 // yahtzee scores as 50
 const yahtzee = new Yahtzee({ score: 50, description: '50 points for a Yahtzee' });
