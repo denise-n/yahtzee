@@ -33,7 +33,6 @@ class Header extends Component {
                     disabled={rollsLeft === 0 || gameOver}
                     rolling={isRolling}
                     />
-                    <div className='Game-button-wrapper'>
                         <button
                             className='Game-reroll'
                             disabled={locked.every(x => x) || rollsLeft===0 || isRolling || gameOver}
@@ -41,7 +40,6 @@ class Header extends Component {
                         >
                             {this.displayRolls()}
                         </button>
-                    </div>
                 </section>
             </header>
         )

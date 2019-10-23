@@ -5,10 +5,10 @@
     align-items: center;
     width: 100%;
     background: linear-gradient(-45deg, #673ab7, #9c27b0);
-    /* background-color: black; */
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
+    flex: 1;
   }
 
 .Game-title {
@@ -17,21 +17,20 @@
     margin-bottom: 0;
     font-weight: 100;
     font-size: 5rem;
-    width: 50%;
+    width: 100%;
+    
 }
 
 .Game-dice-section {
+    display: flex;
+    flex-direction: column;
     width: 50%;
+    height: 70%;
     margin: auto;
   }
   
-  .Game-button-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
   .Game-reroll {
+    align-self: center;
     font-size: 2em;
     color: white;
     font-weight: 100;
@@ -75,6 +74,48 @@
     }
     100% {
       background-position: 0% 50%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .Game-header {
+      height: 35%;
+      font-size: 1.4em;
+    }
+
+    .Game-header .Game-title {
+      font-size: 7rem;
+    }
+
+    .Game-dice-section {
+      width: 60%;
+      margin-top: 1%;
+      justify-content: space-around;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .Game-header {
+      font-size: 1em;
+    }
+    .Game-header .Game-title {
+      font-size: 5rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .Game-header {
+      height: 25%;
+      font-size: small;
+    }
+    .Game-header .Game-title {
+      font-size: 3rem;
+      height: 30%;
+    }
+    .Game-dice-section {
+      height: 70%;
+      width: 90%;
+      margin: 0;
     }
   }
   

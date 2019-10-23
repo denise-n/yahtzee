@@ -146,10 +146,9 @@ class Game extends Component {
           {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} isRolling={isRolling}/> : <GameOver playAgain={this.playAgain} scores={scores}/>}
           
         </div>
-        {/* <div className="Game-button-wrapper">
+        {/* <div className="Game-help-wrapper">
           <Link to='/help'><button className="Game-help">HELP</button></Link>
         </div> */}
-        
       </div>
     )
   }

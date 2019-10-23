@@ -4,8 +4,8 @@ import './RuleRow.css'
 class RuleRow extends Component {
   handleClick = () => {
     const { isRolling, doScore } = this.props
-    if(!this.props.isRolling) {
-      this.props.doScore()
+    if(!isRolling) {
+      doScore()
     }
   }
   render() {
