@@ -89,10 +89,8 @@ class Game extends Component {
       }));
       await console.log(this.state.scores)
       this.checkGameOver();
-      // WILL TRY TO CHANGE TO ASYNC 
     }
   }
-
 
   checkGameOver = () => {
     const { scores } = this.state
@@ -143,11 +141,11 @@ class Game extends Component {
             animateRoll={this.animateRoll}
             toggleLocked={this.toggleLocked}
           />
-          {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} isRolling={isRolling}/> : <GameOver playAgain={this.playAgain} scores={scores}/>}
+          {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} isRolling={isRolling} playAgain={this.playAgain} gameOver={gameOver} /> : <GameOver playAgain={this.playAgain} scores={scores}/>}
           
         </div>
         {/* <div className="Game-help-wrapper">
-          <Link to='/help'><button className="Game-help">HELP</button></Link>
+          <Link to='/help'><button className="Game-help">?</button></Link>
         </div> */}
       </div>
     )

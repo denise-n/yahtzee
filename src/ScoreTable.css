@@ -4,6 +4,7 @@
   flex: 2;
   width: 100%;
   padding: 1%;
+  padding-bottom: 0;
   background-color: white;
 }
 
@@ -28,8 +29,13 @@ h2 {
   margin: 0 auto;
 }
 
+.ScoreTable .total-score {
+  margin-top: 3.5%;
+}
+
 .ScoreTable .total-score h2 {
   font-weight: bold;
+  font-size: 2em;
   margin-bottom: 1%;
 }
 

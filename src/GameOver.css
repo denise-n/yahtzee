@@ -2,22 +2,23 @@
     display: flex;
     flex-direction: column;
     /* justify-content: space-evenly; */
-    height: 100%;
+    height: 65%;
     width: 100%;
     background-color: white;
   }
 
   .GameOver h1 {
     font-size: 3rem;
-    letter-spacing: 0.35em;
+    margin-bottom: 1%;
   }
 
   .GameOver h2 {
     font-weight: bold;
+    border-bottom: none;
   }
 
   .play-again {
-    font-size: 2em;
+    font-size: 2.2em;
     color: white;
     font-weight: 100;
     transition: 0.5s;
@@ -31,7 +32,7 @@
     );
     border-radius: 0.5rem;
     border: none;
-    width: 15vw;
+    width: fit-content;
     padding: 1%;
     /* margin-top: 2%; */
   }
@@ -44,4 +45,13 @@
   .play-again:hover {
     cursor: pointer;
     background-position: right center;
+  }
+
+  @media (max-width: 420px) {
+    .GameOver h1 {
+      font-size: 2em;
+    }
+    .play-again {
+      font-size: 1.5em;
+    }
   }
