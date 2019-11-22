@@ -17,7 +17,7 @@ class ScoreTable extends Component {
         <div className="container w-100">
         <div className="row d-flex w-100 ScoreTable-section-container pt-2 justify-content-around">
 
-<div className="col-11 col-md-6 Scoretable-section">
+<div className="col-11 col-lg-6 Scoretable-section">
   <h2>Upper</h2>
   <table className="table table-sm table-hover">
     <tbody>
@@ -31,7 +31,7 @@ class ScoreTable extends Component {
   </table>
 </div> {/* col */}
 
-<div className="col-11 col-md-6 ScoreTable-section">
+<div className="col-11 col-lg-6 ScoreTable-section">
   <h2>Lower</h2>
   <table className="table table-sm table-hover">
     <tbody>
