@@ -1,48 +1,52 @@
 .Game-container {
-  display: flex;
-  flex-direction: column;
-  height: 99%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* height: 100vh; */
 }
 
 .Game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70vw;
+  /* width: 70vw; */
   background: white;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 0;
-  height: 100%;
+  min-height: 100%;
   
 }
 
 .Game-help-wrapper {
   position: fixed;
   bottom: 0;
-  right: 17%;
-  margin-bottom: 1%;
+  right: 15vw;
+  /* margin-bottom: 1%; */
 }
-  
+
+.Game-help-wrapper .btn {
+  font-size: 2rem;
+  width: 4.5rem;
+}
 
 
 .Game-help {
-  font-size: 1.5em;
-  color: white;
+  /* font-size: 3rem; */
+  /* color: white; */
   font-weight: 100;
-  transition: 0.5s;
-  background-size: 200% auto;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(
+  /* transition: 0.5s; */
+  /* background-size: 200% auto; */
+  /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1); */
+  /* background-image: linear-gradient(
     to right,
     #9c27b0 0%,
     #7f7fd5 51%,
     #9c27b0 100%
-  );
-  border-radius: 0.5rem;
-  border: none;
-  width: 2.1em;
-  height: 2.1em;
-  margin-top: 0.5%;
+  ); */
+  /* border-radius: 0.5rem; */
+  /* border: none; */
+  /* width: 2.1em; */
+  /* height: 2.1em; */
+  /* margin-top: 0.5%; */
 }
 
 .Game-help a {

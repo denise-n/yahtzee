@@ -1,52 +1,55 @@
 .Game-header {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    align-items: center;
-    width: 100%;
-    background: linear-gradient(-45deg, #673ab7, #9c27b0);
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
+    /* height: 45%; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-self: flex-start; */
+    /* align-items: center; */
+    /* width: 100%; */
+    background: linear-gradient(-45deg, #000000, #5d5d5d);
     flex: 1;
   }
 
 .Game-title {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     color: white;
     margin-bottom: 0;
     font-weight: 100;
-    font-size: 5rem;
+    font-size: 4.5rem;
     width: 100%;
     
 }
 
-.Game-dice-section {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 70%;
-    margin: auto;
+/* .Game-dice-section {
+    display: flex; */
+    /* flex-direction: column; */
+    /* width: 50%; */
+    /* height: 70%; */
+    /* margin: auto;
+  } */
+
+  .Game-header .btn {
+    width: 70%;
+    font-size: 2rem;
   }
   
   .Game-reroll {
     align-self: center;
-    font-size: 2em;
+    /* font-size: 2em; */
     color: white;
     font-weight: 100;
-    transition: 0.5s;
-    background-size: 200% auto;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(
+    /* transition: 0.5s; */
+    /* background-size: 200% auto; */
+    /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1); */
+    /* background-image: linear-gradient(
       to right,
       #91eae4 0%,
       #7f7fd5 51%,
       #91eae4 100%
-    );
-    border-radius: 0.5rem;
-    border: none;
-    width: 50%;
-    margin-bottom: 3%;
+    ); */
+    /* border-radius: 0.5rem; */
+    /* border: none; */
+    /* width: 50%; */
+    /* margin-bottom: 3%; */
   }
   
   .Game-reroll:hover {
@@ -65,7 +68,7 @@
     opacity: 0.5;
   }
     
-  @keyframes Gradient {
+  /* @keyframes Gradient {
     0% {
       background-position: 0% 50%;
     }
@@ -75,47 +78,65 @@
     100% {
       background-position: 0% 50%;
     }
+  } */
+
+  @media (max-width: 1200px) {
+    .Game-header {
+      /* height: 45%; */
+    }
+    .Game-header .btn {
+      font-size: 1.5rem;
+      /* width: 70%; */
+    }
   }
 
-  @media (max-width: 1024px) {
-    .Game-header {
+  @media (max-width: 992px) {
+    /* .Game-header {
       height: 35%;
-      font-size: 1.4em;
-    }
+    } */
 
     .Game-header .Game-title {
-      font-size: 7rem;
+      font-size: 4rem;
     }
 
-    .Game-dice-section {
+    .Game-header .btn {
+      width: 50%;
+    }
+    /* .Game-dice-section {
       width: 60%;
       margin-top: 1%;
       justify-content: space-around;
-    }
+    } */
   }
 
   @media (max-width: 768px) {
     .Game-header {
-      font-size: 1em;
-    }
-    .Game-header .Game-title {
-      font-size: 5rem;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .Game-header {
-      height: 25%;
-      font-size: small;
+      /* font-size: 1em; */
     }
     .Game-header .Game-title {
       font-size: 3rem;
-      height: 30%;
     }
-    .Game-dice-section {
+
+  }
+
+  @media (max-width: 576px) {
+    .Game-header {
+      /* height: 30%; */
+      font-size: 0.75rem;
+    }
+    .Game-header .Game-title {
+      font-size: 2.5rem;
+      /* height: 30%; */
+    }
+
+    .Game-header .btn {
+      font-size: 1rem;
+      width: 50%;
+    }
+    /* .Game-dice-section {
       height: 70%;
       width: 90%;
       margin: 0;
-    }
+    } */
   }
   

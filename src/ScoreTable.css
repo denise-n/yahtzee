@@ -1,4 +1,4 @@
-.ScoreTable {
+/* .ScoreTable {
   display: flex;
   flex-direction: column;
   flex: 2;
@@ -6,40 +6,42 @@
   padding: 1%;
   padding-bottom: 0;
   background-color: white;
-}
+} */
 
-.ScoreTable-section-container {
+/* .ScoreTable-section-container {
   display: flex;
   width: 100%;
-}
+} */
 
-.ScoreTable-section {
+/* .ScoreTable-section {
   width: 50%;
+} */
+.ScoreTable {
+  font-size: 0.8rem;
 }
-
-h2 {
-  font-weight: 100;
-  font-size: 1.5em;
-  border-bottom: 2px solid purple;
+.ScoreTable h2 {
+  font-weight: bold;
+  font-size: 1.25em;
+  /* border-bottom: 2px solid purple; */
   display: inline-block;
 }
 
-.ScoreTable table {
+/* .ScoreTable table {
   width: 96%;
   margin: 0 auto;
-}
+} */
 
-.ScoreTable .total-score {
+/* .ScoreTable .total-score {
   margin-top: 3.5%;
-}
+} */
 
 .ScoreTable .total-score h2 {
   font-weight: bold;
-  font-size: 2em;
-  margin-bottom: 1%;
+  /* font-size: 2em; */
+  /* margin-bottom: 1%; */
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .ScoreTable {
     font-size: 1.3em;
   }
@@ -59,9 +61,9 @@ h2 {
     justify-content: center;
     align-items: center;
   }
-}
+} */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .ScoreTable {
     font-size: 1em;
   }
@@ -85,6 +87,6 @@ h2 {
   .ScoreTable {
     font-size: x-small;
   }
-}
+} */
 
 

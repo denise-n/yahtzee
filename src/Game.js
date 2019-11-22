@@ -130,24 +130,28 @@ class Game extends Component {
     const { dice, locked, rollsLeft, isRolling, scores, gameOver } = this.state
   
     return (
-      <div className="Game-container">
-        <div className='Game'>
-          <Header 
-            dice={dice} 
-            locked={!gameOver? locked: Array(NUM_DICE).fill(true)} 
-            rollsLeft={rollsLeft} 
-            isRolling={isRolling} 
-            gameOver={gameOver}
-            animateRoll={this.animateRoll}
-            toggleLocked={this.toggleLocked}
-          />
-          {!gameOver ? <ScoreTable doScore={this.doScore} scores={scores} isRolling={isRolling} playAgain={this.playAgain} gameOver={gameOver} /> : <GameOver playAgain={this.playAgain} scores={scores}/>}
-          
+        <div className="Game-container row w-100 justify-content-center h-100">
+          <div className='Game col-md-12 col-lg-9 p-0'>
+            <div className="container-fluid p-0 h-100">
+              <Header 
+                dice={dice} 
+                locked={!gameOver? locked: Array(NUM_DICE).fill(true)} 
+                rollsLeft={rollsLeft} 
+                isRolling={isRolling} 
+                gameOver={gameOver}
+                animateRoll={this.animateRoll}
+                toggleLocked={this.toggleLocked}
+              />
+              {!gameOver 
+                ? <ScoreTable doScore={this.doScore} scores={scores} isRolling={isRolling} playAgain={this.playAgain} gameOver={gameOver} /> 
+                : <GameOver playAgain={this.playAgain} scores={scores}/>}
+            </div>
+          </div>
+          {/* <div className="Game-help-wrapper">
+            <Link to='/help'><button className="btn btn-dark Game-help">?</button></Link>
+          </div> */}
         </div>
-        {/* <div className="Game-help-wrapper">
-          <Link to='/help'><button className="Game-help">?</button></Link>
-        </div> */}
-      </div>
+     
     )
   }
 }
