@@ -19,7 +19,7 @@ body {
     background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   margin: 0;
   overflow-x: hidden;
-  /* overflow-y: scroll; */
+  /* overflow-y: hidden; */
 }
 
 /* #root {

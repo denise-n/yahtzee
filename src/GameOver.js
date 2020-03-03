@@ -13,7 +13,7 @@ class GameOver extends Component {
                 <h1>GAME OVER</h1>
                 <h2>Final Score: {Object.values(scores).reduce((a, b) => a + b)}</h2>
                 <div className="Game-button-wrapper">
-                    <button onClick={this.handleClick} className="play-again">Play Again?</button>
+                    <button onClick={this.handleClick} className="btn btn-outline-dark btn-lg play-again">Play Again?</button>
                 </div>
             </div>
         )

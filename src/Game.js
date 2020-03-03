@@ -130,7 +130,7 @@ class Game extends Component {
     const { dice, locked, rollsLeft, isRolling, scores, gameOver } = this.state
   
     return (
-        <div className="Game-container row w-100 justify-content-center h-100">
+        <div className="row w-100 justify-content-center h-100">
           <div className='Game col-md-12 col-lg-9 p-0'>
             <div className="container-fluid p-0 h-100">
               <Header 

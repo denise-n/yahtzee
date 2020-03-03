@@ -4,7 +4,10 @@ import './Header.css'
 
 class Header extends Component {
     displayRolls = () => {
-        const { rollsLeft } = this.props
+        const { rollsLeft, gameOver } = this.props
+        if (gameOver) {
+            return 'Out of Rolls!'
+        }
         switch (rollsLeft) {
             case 3:
                 return 'Rolling...'

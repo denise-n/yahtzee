@@ -82,7 +82,7 @@
 
   @media (max-width: 1200px) {
     .Game-header {
-      /* height: 45%; */
+      height: 45%;
     }
     .Game-header .btn {
       font-size: 1.5rem;
@@ -91,9 +91,9 @@
   }
 
   @media (max-width: 992px) {
-    /* .Game-header {
+    .Game-header {
       height: 35%;
-    } */
+    }
 
     .Game-header .Game-title {
       font-size: 4rem;
